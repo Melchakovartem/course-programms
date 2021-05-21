@@ -1,3 +1,5 @@
 class Course < ApplicationRecord
-  has_many :programs, dependent: :destroy, inverse_of: :courses
+  belongs_to :program, inverse_of: :courses
+
+  validates :program, presence: true
 end

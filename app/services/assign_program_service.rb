@@ -5,7 +5,7 @@ class AssignProgramService
 
   validates :program, presence: true
   validates :resource, presence: true
-  
+
   def initialize(program, resource)
     @program = program
     @resource = resource
@@ -14,6 +14,6 @@ class AssignProgramService
   def perform
     return unless valid?
 
-    program.resources << resource
+    program.send(resource.class.name.downcase.pluralize) << resource
   end
 end

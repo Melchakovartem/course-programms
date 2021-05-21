@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  belongs_to :group, inverse_of: :user
+  belongs_to :group, inverse_of: :users
   has_many :program_users, dependent: :destroy
   has_many :programs, through: :program_users
 
